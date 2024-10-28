@@ -1,39 +1,30 @@
+// src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import EventCard from './components/EventCard';
 import EventDetailsModal from './components/EventDetailsModal';
-import eventsData from './data/events.json';
+import events from './events';
 import './App.css';
 
-function App() {
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const App = () => {
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
 
-  const handleEventClick = (event) => {
-    setSelectedEvent(event);
-    setIsModalOpen(true);
-  };
+    const filteredEvents = events.filter(event =>
+        event.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedEvent(null);
-  };
-
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <h1>EventSpot Lite</h1>
-        <div className="event-list">
-          {eventsData.map((event) => (
-            <EventCard key={event.id} event={event} onClick={() => handleEventClick(event)} />
-          ))}
+    return (
+        <div className="App">
+            <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <div className="event-list">
+                {filteredEvents.map(event => (
+                    <EventCard key={event.id} event={event} onClick={() => setSelectedEvent(event)} />
+                ))}
+            </div>
+            <EventDetailsModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
         </div>
-        {isModalOpen && <EventDetailsModal event={selectedEvent} onClose={closeModal} />}
-      </div>
-    </Router>
-  );
-}
+    );
+};
 
 export default App;
