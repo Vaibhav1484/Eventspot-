@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Concert in the Park",
+      "date": "2024-11-10",
+      "location": "Central Park",
+      "description": "Join us for an amazing concert featuring local artists!",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "name": "Art Exhibition",
+      "date": "2024-11-15",
+      "location": "Art Gallery",
+      "description": "Explore contemporary art from renowned artists.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 3,
+      "name": "Food Festival",
+      "date": "2024-11-20",
+      "location": "Downtown Square",
+      "description": "Taste dishes from food vendors around the city!",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+  

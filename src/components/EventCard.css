@@ -1,0 +1,26 @@
+.event-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+}
+
+.event-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.event-card h3 {
+    margin: 8px 0;
+    font-size: 1.5em;
+}
+
+.event-card p {
+    color: #666;
+}
